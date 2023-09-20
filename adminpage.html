@@ -1,0 +1,95 @@
+<?php
+// Start a session to track the user's login status
+session_start();
+
+
+
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Check if the provided admin username and password are correct (you should store these securely)
+    $admin_username = "admin";
+    $admin_password = "admin123";
+
+    $input_username = $_POST['ausername'];
+    $input_password = $_POST['apassword'];
+
+    if ($input_username === $admin_username && $input_password === $admin_password) {
+        // Set a session variable to indicate that the admin is logged in
+        $_SESSION['admin_logged_in'] = true;
+
+        // Redirect to the admin dashboard
+        header("Location: admin.html");
+        exit;
+    } else {
+        // Display an error message if the login credentials are incorrect
+        $error_message = "Invalid username or password";
+        echo "<script>alert('Invalid username or password');</script>";
+    }
+}
+?>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- swiper css link  -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style2.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <?php @include 'header.html'; ?>
+
+        <section class="contact">
+
+            <h1 class="heading">For Admin only access</h1>
+
+            <form action="#" method="post">
+
+                <div class="flex">
+
+                    <div class="inputBox">
+                        <span>Admin id</span>
+                        <input type="text" placeholder="enter Admin Id" name="ausername" required>
+                    </div>
+                    <div class="inputBox">
+                        <span>Admin password</span>
+                        <input type="password" placeholder="enter Admin password" name="apassword" required>
+                    </div>
+
+                    <!-- <input type="submit" value="GO" name="send" class="btn"> -->
+                    <input type="submit" value="Login" class="btn">
+
+            </form>
+
+        </section>
+
+        <?php @include 'footer.html'; ?>
+
+    </div>
+
+    <!-- swiper js link  -->
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+    <!-- custom js file link  -->
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
