@@ -45,7 +45,7 @@ if (isset($_POST['Update'])) {
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 
     <!-- custom css file link  -->
-    <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="style2.css">
 
 </head>
 
@@ -129,7 +129,7 @@ if (isset($_POST['Update'])) {
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
     <!-- custom js file link  -->
-    <script src="js/script.js"></script>
+    <script src="script.js"></script>
 
 </body>
 
